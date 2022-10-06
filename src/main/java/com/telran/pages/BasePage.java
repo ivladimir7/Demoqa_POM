@@ -53,7 +53,6 @@ public class BasePage {
         js.executeScript("window.scrollBy(" + x + "," + y + ")");
         element.click();
     }
-
     public void acceptAlert() {
         driver.switchTo().alert().accept();
     }

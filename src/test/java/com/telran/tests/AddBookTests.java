@@ -26,4 +26,5 @@ public class AddBookTests extends TestBase{
         new SidePanelPage(driver).selectProfile();
         Assert.assertTrue(new BookStorePage(driver).takeNameOfBook().contains(BookData.BOOK_NAME));
     }
+
 }

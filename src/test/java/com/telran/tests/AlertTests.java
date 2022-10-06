@@ -13,10 +13,15 @@ public class AlertTests extends TestBase{
     public void ensurePrecondition() {
         new HomePage(driver).selectAlertsFrameWindows();
         new SidePanelPage(driver).selectAlerts();
+
     }
-@Test
-public void alertWaitTest() {
-    new AlertsPage(driver).acceptTimerAlert();
+    @Test
+    public void alertTest() {
+        new AlertsPage(driver).acceptButtonAlert();
+    }
+    @Test
+    public void alertWaitTest() {
+        new AlertsPage(driver).acceptTimerAlert();
 }
 
     @Test

@@ -7,10 +7,21 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AlertsPage extends BasePage{
+
     public AlertsPage(WebDriver driver) {
         super(driver);
     }
-@FindBy(id = "timerAlertButton")
+
+    @FindBy(id = "timerAlertButton")
+    WebElement alertButton;
+
+    public AlertsPage acceptButtonAlert() {
+        click(alertButton);
+        acceptAlert();
+        return this;
+    }
+
+    @FindBy(id = "timerAlertButton")
     WebElement timerAlertButton;
 
     public AlertsPage acceptTimerAlert() {
@@ -19,6 +30,7 @@ public class AlertsPage extends BasePage{
         wait.until(ExpectedConditions.alertIsPresent()).accept();
         return this;
     }
+
     @FindBy(id ="confirmButton")
     WebElement confirmButton;
 
