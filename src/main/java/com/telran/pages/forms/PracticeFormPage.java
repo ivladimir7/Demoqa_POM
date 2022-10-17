@@ -91,7 +91,7 @@ public class PracticeFormPage extends BasePage {
     @FindBy(id = "uploadPicture")
     WebElement uploadPicture;
 
-    public PracticeFormPage upLoadFile(String picturePath) {
+    public PracticeFormPage uploadFile(String picturePath) {
         uploadPicture.sendKeys(picturePath);
         return this;
     }

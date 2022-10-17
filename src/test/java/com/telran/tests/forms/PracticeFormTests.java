@@ -25,7 +25,7 @@ public class PracticeFormTests extends TestBase {
                     .typeOfDate(StudentData.DATE)
                     .addSubject(StudentData.SUBJECTS)
                     .chooseHobby(StudentData.HOBBIES)
-                    .upLoadFile(StudentData.PHOTO_PATH)
+                    .uploadFile(StudentData.PHOTO_PATH)
                     .enterState(StudentData.STATE)
                     .enterCity(StudentData.CITY);
 
