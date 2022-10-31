@@ -1,10 +1,7 @@
 package com.telran.pages.forms;
 
 import com.telran.pages.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 
 public class PracticeFormPage extends BasePage {
@@ -88,6 +85,7 @@ public class PracticeFormPage extends BasePage {
         }
         return this;
     }
+
     @FindBy(id = "uploadPicture")
     WebElement uploadPicture;
 
@@ -149,6 +147,7 @@ public class PracticeFormPage extends BasePage {
     public PracticeFormPage clickSubmitButton() {
         clickWithJSExecutor(submit, 0, 700);
         return this;
+
     }
 
     @FindBy(xpath = "//*[.='Tom Sorer']")
@@ -157,5 +156,15 @@ public class PracticeFormPage extends BasePage {
     public String getStudentNameText() {
         return getFirstNameText.getText();
     }
-}
 
+    public PracticeFormPage hideIframes() {
+        hideAd();
+        hideFooter();
+        return this;
+    }
+
+    public PracticeFormPage enterAddress(String address) {
+        typeWithJSExecutor(currentAddressField, address, 0, 300);
+        return this;
+    }
+}

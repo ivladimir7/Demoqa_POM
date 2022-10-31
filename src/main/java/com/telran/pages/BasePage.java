@@ -1,6 +1,7 @@
 package com.telran.pages;
 
 import com.google.common.io.Files;
+import com.telran.pages.forms.PracticeFormPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -71,15 +72,34 @@ public class BasePage {
     }
 
     public String takeScreenshot() {
-          File tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-       File screenshot = new File("screenshots/screen" + System.currentTimeMillis() + ".png");
-          try {
+        File tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File screenshot = new File("screenshots/screen" + System.currentTimeMillis() + ".png");
+        try {
             Files.copy(tmp, screenshot);
 
-          } catch (IOException e) {
-              e.printStackTrace();
-          }
-          return screenshot.getAbsolutePath();
-       }
-}
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return screenshot.getAbsolutePath();
+    }
 
+    public void hideAd() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.getElementByID('adplus-anchor').style.display='none'");
+    }
+
+    public void hideFooter() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.querySelector('footer').style.display='none'");;
+    }
+
+    public void clickWithRectangle(WebElement element, int i, int j) {
+        Rectangle rectangle = element.getRect();
+        int offsetX = rectangle.getWidth()/i;
+        int offsetY = rectangle.getHeight()/j;
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).perform();
+        actions.moveByOffset(-offsetX, -offsetY).click().perform();
+
+    }
+}

@@ -21,8 +21,4 @@ public class SelectTest extends TestBase {
     public void  multiSelectTest() {
         new SelectMenuPage(driver).clickOnMultiSelectDropDown("Blue").deselect().clickOnMultiSelectDropDownMulti("Red","Blue","Green");
     }
-////    @Test
-////    public void  standartMultiSelectTest(){
-////        new SelectMenuPage(driver).clickStandartMultiSelect;
-//    }
 }

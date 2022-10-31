@@ -47,5 +47,12 @@ public class HomePage extends BasePage{
         return new SidePanelPage(driver);
 
     }
+    @FindBy(xpath = "//h5[.='Interactions']")
+    WebElement interactions;
+
+    public SidePanelPage selectInteractions() {
+            clickWithJSExecutor(interactions,0,300);
+            return new SidePanelPage(driver);
+    }
 }
 

@@ -5,13 +5,15 @@ import com.telran.pages.alerts.BrowserWindowsPage;
 import com.telran.pages.alerts.FramePage;
 import com.telran.pages.alertsWindows.NestedFramesPage;
 import com.telran.pages.bookstore.ProfilePage;
-import com.telran.pages.elements.ButtonsPage;
+import com.telran.pages.elements.*;
+import com.telran.pages.interactions.DragAndDropPage;
+import com.telran.pages.widgets.MenuPage;
 import com.telran.pages.widgets.SelectMenuPage;
+import com.telran.pages.widgets.SliderPage;
 import forms.PracticeFormPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
 
 public class SidePanelPage extends BasePage {
 
@@ -79,8 +81,64 @@ public class SidePanelPage extends BasePage {
     WebElement nestedFrames;
 
     public NestedFramesPage selectNestedFrames() {
-        clickWithJSExecutor(nestedFrames,0,300);
+        clickWithJSExecutor(nestedFrames, 0, 300);
         return new NestedFramesPage(driver);
     }
+
+    @FindBy(xpath = "//span[.='Droppable']")
+    WebElement droppable;
+
+    public DragAndDropPage selectDroppable() {
+        clickWithJSExecutor(droppable, 0, 400);
+        return new DragAndDropPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Menu']")
+    WebElement menu;
+
+    public MenuPage selectMenuItem() {
+        clickWithJSExecutor(menu, 0, 400);
+        return new MenuPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Slider']")
+    WebElement slider;
+
+    public SliderPage selectSlider() {
+        clickWithJSExecutor(slider, 0, 400);
+        return new SliderPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Text Box']")
+    WebElement textBox;
+
+    public TextBoxPage selectTextBox() {
+        click(textBox);
+        return new TextBoxPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Broken Links - Images']")
+    WebElement brokenLinksImages;
+
+    public BrokenLinksImagesPage selectBrokenLinksImages() {
+        brokenLinksImages.click();
+        return new BrokenLinksImagesPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Links']")
+    WebElement links;
+
+    public LinksPage selectLinks() {
+        links.click();
+        return new LinksPage(driver);
+    }
+
+    @FindBy (xpath = "//span[.='Upload and Download']")
+    WebElement uploadAndDownload;
+
+    public UploadAndDownloadPage selectUploadAndDownload() {
+        return new UploadAndDownloadPage(driver);
+    }
 }
+
 //span[contains(.,'Profile')]
